@@ -1,0 +1,25 @@
+{
+  "name": "gcp-functions-framework-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "functions-framework --target=main",
+    "prestart": "pnpm run build",
+    "gcp-build": "pnpm run build",
+    "deploy": "terraform apply"
+  },
+  "keywords": [],
+  "author": "Samuel Magny",
+  "email": "samuel@smagny.com",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.0",
+    "escape-html": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/escape-html": "^1.0.4",
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "pnpm@9.1.2+sha512.127dc83b9ea10c32be65d22a8efb4a65fb952e8fefbdfded39bdc3c97efc32d31b48b00420df2c1187ace28c921c902f0cb5a134a4d032b8b5295cbfa2c681e2"
+}

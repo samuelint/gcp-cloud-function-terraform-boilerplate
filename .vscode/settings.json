@@ -1,0 +1,10 @@
+{
+  "editor.tabSize": 2,
+  "jest.rootPath": ".",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": [
+    "javascript"
+  ]
+}
