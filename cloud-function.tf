@@ -21,11 +21,11 @@ data "archive_file" "dist" {
   ]))
 
   output_file_mode = "0666"
-  output_path      = "${path.module}/${timestamp()}-dist.zip"
+  output_path      = "${path.module}/dist.zip"
 }
 
 resource "google_storage_bucket_object" "object" {
-  name   = "function-source-${timestamp()}.zip"
+  name   = "function-source-${data.archive_file.dist.output_sha256}.zip"
   bucket = google_storage_bucket.default.name
   source = data.archive_file.dist.output_path
 }
