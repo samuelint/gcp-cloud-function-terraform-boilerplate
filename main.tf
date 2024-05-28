@@ -26,6 +26,7 @@ resource "google_project_service" "gcp_services" {
     "cloudresourcemanager.googleapis.com",
     "iam.googleapis.com",
     "storage-api.googleapis.com",
+    "secretmanager.googleapis.com",
   ])
   project = var.gcp_project
   service = each.key

@@ -9,7 +9,8 @@ resource "google_project_iam_member" "function_roles" {
     "roles/run.invoker",
     "roles/storage.objectViewer",
     "roles/artifactregistry.reader",
-    "roles/artifactregistry.writer"
+    "roles/artifactregistry.writer",
+    "roles/secretmanager.secretAccessor",
   ])
   project = var.gcp_project
   role    = each.key

@@ -47,10 +47,16 @@ resource "google_cloudfunctions2_function" "default" {
   }
 
   service_config {
-    max_instance_count    = 1
-    available_memory      = "256M"
-    timeout_seconds       = 60
-    service_account_email = google_service_account.account.email
+    max_instance_count = 1
+    available_memory   = "256M"
+    timeout_seconds    = 60
+
+    secret_environment_variables {
+      key        = "SOME_SECRET"
+      project_id = var.gcp_project
+      secret     = google_secret_manager_secret.secret.secret_id
+      version    = "latest"
+    }
   }
 
   depends_on = [google_project_iam_member.function_roles]

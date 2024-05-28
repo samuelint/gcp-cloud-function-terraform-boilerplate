@@ -3,3 +3,5 @@ dist/
 
 .terraform
 .DS_Store
+
+.env
