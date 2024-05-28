@@ -1,10 +1,10 @@
 
 terraform {
   cloud {
-    organization = "smagny"
+    organization = "my-org-id"
 
     workspaces {
-      name = "gcp-functions-framework-playground"
+      name = "gcp-cloud-function-terraform"
     }
   }
 

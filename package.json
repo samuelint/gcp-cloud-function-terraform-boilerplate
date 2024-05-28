@@ -1,7 +1,7 @@
 {
-  "name": "gcp-functions-framework-playground",
+  "name": "gcp-cloud-function-terraform-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "A boilerplate for deploying Google Cloud Functions with Terraform",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
