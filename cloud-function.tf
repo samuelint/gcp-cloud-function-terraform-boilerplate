@@ -32,9 +32,22 @@ data "archive_file" "dist" {
   type                        = "zip"
   source_dir                  = path.module
   exclude_symlink_directories = true
-  excludes                    = ["*.tf", "*.tfvars", ".gitignore", ".git", ".terraform", ".DS_Store", ".vscode", ".env"]
-  output_file_mode            = "0666"
-  output_path                 = "${path.module}/${timestamp()}-dist.zip"
+  excludes = concat(
+    tolist(fileset(path.module, "*.tf")),
+    tolist(fileset(path.module, "*.tfplan")),
+    tolist(fileset(path.module, "*.zip")),
+    tolist([
+      ".terraform.lock.hcl",
+      ".gitignore",
+      ".git",
+      ".terraform",
+      ".DS_Store",
+      ".vscode",
+      ".env"
+  ]))
+
+  output_file_mode = "0666"
+  output_path      = "${path.module}/${timestamp()}-dist.zip"
 }
 
 resource "google_storage_bucket_object" "object" {
