@@ -6,3 +6,9 @@ resource "google_storage_bucket" "default" {
     "managed-by" = "terraform"
   }
 }
+
+resource "google_storage_bucket_iam_member" "bucket_reader" {
+  bucket = google_storage_bucket.default.name
+  role   = "roles/storage.objectViewer"
+  member = "serviceAccount:${google_service_account.account.email}"
+}
